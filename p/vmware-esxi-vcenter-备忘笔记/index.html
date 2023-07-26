@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='VMware ESXI vCenter 备忘笔记'>
+<title>VMware ESXI vCenter 备忘笔记</title>
+
+<link rel='canonical' href='http://192.168.123.6:1313/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.ff300df33b80e2ac49809c825614392ed1c7b27591d65d3c4043602cd162e25f.css"><meta property='og:title' content='VMware ESXI vCenter 备忘笔记'>
+<meta property='og:description' content='VMware ESXI vCenter 备忘笔记'>
+<meta property='og:url' content='http://192.168.123.6:1313/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='L1nSn0w&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ESXi' /><meta property='article:tag' content='VMware' /><meta property='article:published_time' content='2022-07-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-07-29T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="VMware ESXI vCenter 备忘笔记">
+<meta name="twitter:description" content="VMware ESXI vCenter 备忘笔记">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">L1nSn0w&#39;s Blog</a></h1>
+            <h2 class="site-description">无限进步.✍️</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://travellings.link/'
+                        
+                        title="aTravelling"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.foreverblog.cn/go.html'
+                        
+                        title="aWormhole"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="cRSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/lin-snow'
+                        target="_blank"
+                        title="dGitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#网卡信息查询">网卡信息查询</a></li>
+    <li><a href="#给虚拟机添加usb设备例如u盘">给虚拟机添加USB设备，例如U盘</a></li>
+    <li><a href="#esxi65开启开启嵌套虚拟化">esxi6.5开启开启嵌套虚拟化</a></li>
+    <li><a href="#vmware-ovf-tool导出主虚拟主机">VMware OVF Tool导出主虚拟主机</a></li>
+    <li><a href="#许可证">许可证</a></li>
+    <li><a href="#集群报错处理">集群报错处理</a></li>
+    <li><a href="#vmware-vcenter-server-设置ha和drs功能">VMware vCenter Server 设置HA和DRS功能</a></li>
+    <li><a href="#导出克隆虚拟机">导出(克隆)虚拟机</a></li>
+    <li><a href="#esxi-cpu-vsphere正确分配虚拟机cpu资源">ESXI CPU VSphere正确分配虚拟机CPU资源</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E6%91%98%E5%BD%95/" >
+                技术摘录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/">VMware ESXI vCenter 备忘笔记</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            VMware ESXI vCenter 备忘笔记
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 29, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 9 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="网卡信息查询">网卡信息查询</h2>
+<p>查看所有网卡：<br>
+esxcfg-nics -l<br>
+查看更详细的网上信息：<br>
+esxcli network nic list<br>
+查看对应网卡驱动和固件，如下查看vmnic0对应的驱动和固件：<br>
+esxcli network nic get -n vmnic0<br>
+显示网卡的VID，DID 等信息：<br>
+vmkchdev -l | grep vmnic0<br>
+然后去VMware网站查询兼容情况，如果不兼容，去对应硬件厂商找到对应固件更新。各硬件厂商更新fireware方式略有不同，具体联系对应硬件厂商。 VMware网站下载对应的网卡驱动，会得到一个zip压缩包，解压缩后有两个文件，一个vib格式，一个zip格式。用如下命令更新： esxcli software vib install -v {VIBFILE}<br>
+或<br>
+esxcli software vib install -d {OFFLINE_BUNDLE}<br>
+(注：如果执行安装后提示could not find a trusted signer，可以在命令后添加参数 –no-sig-check) 建议使用第一种更新方式，注意，vib存放路径用完整路径。之后重启主机。<br>
+……………………………………………</p>
+<h2 id="给虚拟机添加usb设备例如u盘">给虚拟机添加USB设备，例如U盘</h2>
+<p>1、把USB设备插入到物理主机<br>
+2、编辑虚拟机设置–添加其它其他设备–USB设备–保存设置。<br>
+注：同一个USB设备，同时只能添加到一台虚拟机中。在虚拟机中删除该USB设备后，才能添加到其它虚拟机中。<br>
+……………………………………………</p>
+<h2 id="esxi65开启开启嵌套虚拟化">esxi6.5开启开启嵌套虚拟化</h2>
+<p>Esxi主机开启ssh，修改 /etc/vmware/config 配置文件，在配置文件后面加入如下配置：vhv.enable = “TRUE” ，然后reboot重启ESXI主机。 等开机后，打开Esxi上的虚拟机，登陆，查看虚拟化是否开启（vmx是Inter 处理器，svm是AMD处理器） egrep ‘(vmx|svm)’ /proc/cpuinfo<br>
+另外在虚拟交换机的端口组需要开启混杂功能，要不通信有问题，开启混杂的原因：VMware 虚拟交换机上只能感知到其上的虚拟机，但无法感知到嵌套后其上虚拟机的子虚拟机的 MAC地址，所以通信时候，用子虚拟机通信到VMware 最底层虚拟交换机就会丢包。<br>
+要将端口组或虚拟交换机配置为允许混杂模式，请执行以下操作：<br>
+使用 vSphere Client 登录到 ESXi/ESX 主机或 vCenter Server。在清单中选择 ESXi/ESX 主机。单击配置选项卡。在“硬件”部分，单击网络。单击要启用混杂模式的虚拟交换机的属性。 选择要修改的虚拟交换机或端口组，然后单击编辑。单击安全选项卡。从“混杂模式”下拉菜单中，单击接受。</p>
+<p>配置虚拟机开机自启动 导航器–&gt;主机–&gt;管理–&gt;系统–&gt;自动启动中将已启用设置为&quot;是&quot;，然后返回到虚拟机列表页面，右击需要自动启动的某个虚拟机–自动启动–启用。 默认情况下启动和停止延迟都是120秒，默认动作是关机，不等待停止信号。即开机后等待120秒后启动虚拟机，关机也是等待120秒，避免宿主机启动时压力过大。停止操作和等待检测信号需要连用，意思是宿主机关机时给虚拟机发出关机的信号，并等待120秒使虚机关机，120秒后虚机仍未完成关机动作则不等待，断电。</p>
+<h2 id="vmware-ovf-tool导出主虚拟主机">VMware OVF Tool导出主虚拟主机</h2>
+<p>虚拟主机先关机 进入VMware OVF Tool的安装目录，在地址栏中运行cmd<br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072901.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072902.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>输入如下命令格式：<br>
+ovftool.exe vi://root:@192.168.1.41/CentOS8_192.168.1.49 c:\ovf\CentOS8_192.168.1.49<br>
+其中“192.168.1.41”是虚拟机的IP地址，“CentOS8_192.168.1.49”是虚拟机名称，“c:\ovf\”是要复制到的路径。 回车后，输入ESXI管理员密码，等待导出完成即可。<br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072903.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="许可证">许可证</h2>
+<p>VMware-ESXi-6.7.0<br>
+0A65P-00HD0-3Z5M1-M097M-22P7H<br>
+VMware vCenter/vSphere/vSan/Esxi/7.0<br>
+<strong>VMware vSphere 7.x</strong><br>
+vSphere ESXi 7.0 Enterprise Plus<br>
+JJ2WR-25L9P-H71A8-6J20P-C0K3F<br>
+HN2X0-0DH5M-M78Q1-780HH-CN214<br>
+JH09A-2YL84-M7EC8-FL0K2-3N2J2<br>
+……………………………<br>
+<strong>vCenter 7.0 Standard</strong><br>
+104HH-D4343-07879-MV08K-2D2H2<br>
+406DK-FWHEH-075K8-XAC06-0JH08<br>
+…………………………<br>
+<strong>VSAN 7.0 Enterprise Plus</strong><br>
+HN0D8-AAJ1Q-07D00-6U924-CX224<br>
+50008-221DH-M7E99-A9CKM-A1030<br>
+HN0NH-62051-H75E9-P38RM-0H870<br>
+…………………………….<br>
+<strong>vSphere 6 Enterprise</strong><br>
+5Y04A-8934J-M85P1-3K37H-9P04D<br>
+JA2NH-2Z191-08501-NCAX2-2VK4F<br>
+0F2T2-DCK93-M88M8-7J9E4-16RJ0<br>
+NU0EK-05100-M80N9-501N2-8G81D</p>
+<p>要迁移磁盘大于 2TB 的虚拟机，源和目标 ESXi 主机必须为版本 6.0 或更高版本。ESXI的嵌套，CPU要开启硬件虚拟化。物理主机需要把网络端口组设置安全策略为混杂模式，否则嵌套的虚拟机的网络会不通。<br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072904.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+><br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072905.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+><br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072906.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>VMware vSphere Hypervisor (ESXi) 与 VMware vCenter Server 对应的支持版本，绿色的就是支持的。 <img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072907.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="集群报错处理">集群报错处理</h2>
+<p>数据中心启用HA后 HA代理报错<br>
+问题一 ：此主机上的vsphere HA无法访问隔离地址<br>
+在每台ESXi主机上 的 网络配置 默认网关都配置的 管理IP 的一个网关，如果之前设置的默认网关IP地址ping不通，只能修改HA高级属性的默认配置了。<br>
+一般默认隔离地址是管理IP对应的网关，如果没有网关，也可以通过高级设置指定某具体ip地址作为隔离地址。<br>
+das.isolationaddress[1]<br>
+//设置为需要的网关地址，可以设置10个隔离地址<br>
+das.usedefaultisolationaddress<br>
+//设置为false<br>
+即可。</p>
+<p>问题二 ：此主机上的vsphere HA检测信号数据存储（少于2个）<br>
+两个或多个主机做HA，需要存储系统提供vMotion的心跳信号。VMware默认是两个心跳信号才确定执行vMotion。如果你只有一台存储，或者 只分了存储上的1个LUN，就会出现上面这个提示。如果想关闭这个提示，可以进行如下操作：ESXi对只有一个DataStore的警告提示：<br>
+1、选择HA-配置-vSphere HA-高级选项。 2、在选项窗口输入das.ignoreinsufficienthbdatastore，在数值窗口输入true 即可。<br>
+………………………………..<br>
+当集群中只有一台esxi时，集群会提示HA故障切换资源不足。<br>
+群集显示红色警告因为只添加了一台主机，无法实现群集功能，当你把两台Esxi 都添加进来后，这个提示就自动消失了！<br>
+……………………………..<br>
+“此主机当前没有管理网络冗余&quot;, “该主机的vSphere HA检测信号数据存储数目为0，少于要求数目:2“<br>
+首先这是两个报警<br>
+1、此主机当前没有管理网络冗余<br>
+报警原因：因为我当前主机所使用的是单网卡，所有没有多余的管理网络去冗余；<br>
+解决方法：进入vcenter—选择群集—编辑设置—Vsphere HA—高级选项—键入das.ignoreRedundantNetWarning，在值中输入true—确定—右键群集中主机—重新配置vsphere HA–报警消失。<br>
+2、该主机的vSphere HA检测信号数据存储数目为0，少于要求数目:2<br>
+报警原因：因为只有个物理网卡、且被管理网络占用，所以HA数据存储检测信号所检测到的数据存储数目为0<br>
+解决方法:进入vcenter—选择群集—编辑设置—Vsphere HA—高级选项—键入das.ignoreinsufficienthbdatastore，在值中输入true—确定—无需重新配置vsphere HA，稍等自动报警消失。<br>
+备注：从vsphere5.0开始HA加入了数据存储检测信号的功能，此功能的作用是当HA群集中首选主机无法通过管理网络与从属主机通信时，首选主机将使用数据存储检测信号来判断该从属主机是网络隔离还是出现故障（首选主机通过管理网络和数据存储检测信号检测从属主机状态），若从属主机停止数据存储检测信号，则认定从属主机发生故障，并将其所载虚拟机在别处启动；</p>
+<p><strong>ESXI主机报错收集：</strong></p>
+<ul>
+<li>将虚拟网卡添加到 iSCSI 适配器报错处理<br>
+键：haTask-ha-host-vim.host.IscsiManager.bindVnic-1920719847<br>
+描述：将虚拟网卡添加到 iSCSI 适配器<br>
+状况：失败 - VMkernel 虚拟网卡适配器 vmk0 具有多个物理上行链路。<br>
+错误：VMkernel 网络适配器 vmk0 与多个物理网络适配器相关联。要使用 VMkernel 网络适配器进行 iSCSI 端口绑定，必须只将其与一个物理网络适配器相关联。<br>
+解决方法：要使用 VMkernel 网络适配器进行 iSCSI 端口绑定，必须将此虚拟网卡只与一个物理网络适配器相关联，就是每个虚拟交换机下，只添加一个上行链路。</li>
+</ul>
+<h2 id="vmware-vcenter-server-设置ha和drs功能">VMware vCenter Server 设置HA和DRS功能</h2>
+<p>1、 启动HA功能<br>
+标注：前面虽然虽然启用HA功能，因为没有添加任何主机，群集会自动把HA的功能关闭，所以，现在需要手动开启。<br>
+2、选择 “打开vSpherer HA”和 “启用Proactive HA”功能<br>
+HA功能响应机制设置<br>
+一台VMware EXSI主机发生故障时自动迁移到另外一台VMware EXSI主机上，但是自动迁移虚拟机过程中会重启虚拟机系统。<br>
+3、配置DRS功能<br>
+DRS功能暂时先设置成手动，如果选择全自动会影响本教程HA功能测试。 原因是全自动DRS功能会自动检查两台VMware EXSI主机上的虚拟机资源利用率， 如果一台VMware EXSI主机资源利用率过高，会自动把虚拟机重新启动迁移到另外一台VMware EXSI主机上。</p>
+<h2 id="导出克隆虚拟机">导出(克隆)虚拟机</h2>
+<p>1、进入“数据存储浏览器“，可以看到以虚拟机命名的一些目录，目录下的文件夹名一般是虚拟机名称，创建虚拟机时按虚拟机名称创建了同名文件夹。点击上方“创建目录”按钮，输入文件夹名，建议和想要新建的虚拟机名称一致，便于维护。<br>
+2、然后进入需要复制的虚拟机目录（就是刚刚我们关机了的那台机器），将后将缀名为.vmx（虚拟机）和.vmdk（虚拟磁盘）的文件进行点击右键后复制。其实把 .nvram .vmxf 都可以复制过去，除了.log 选择新虚拟机目录，点击右键后进行粘贴。<br>
+3、粘贴完成之后，右键点击. vmx（虚拟机）文件，再点击“注册虚拟机”。<br>
+4、成功之后会多出一个虚拟机（它不会自己修改虚拟机名称的），重命名输入新的虚拟机名称，建议与虚拟机文件夹名称一致，便于维护。<br>
+5、首次运行虚拟机时，ESXi会询问虚拟机文件的来源，这时候我们选择“我已复制”，这样ESXi就会自动修改虚拟机中的唯一标识，最重要的就是网卡的MAC地址，这是避免冲突的最好办法。</p>
+<h2 id="esxi-cpu-vsphere正确分配虚拟机cpu资源">ESXI CPU VSphere正确分配虚拟机CPU资源</h2>
+<ul>
+<li><strong>CPU资源说明：</strong> VMware vSphere为虚拟机分配的CPU数是指逻辑处理器数。每台主机（服务器）拥有的逻辑处理器总数是不一样的，为物理CPU数量×每CPU的核(Core)数×超线程因子，当硬件支持超线程且在BIOS中开启超线程时，超线程因子为2，否则为1。例如某服务器为4C 8核并且支持超线程时，其CPU内核只有4×8＝32个，插槽数即CPU数＝4，vSphere可分配的该主机逻辑处理器数为4×8×2＝64。</li>
+<li><strong>CPU资源分配：</strong> vSphere给虚拟机分配的逻辑CPU数等于插槽数×每插槽的内核数，其中插槽数不能直接设置，可通过调整另两个数量来间接设置。如分配4个逻辑CPU给某虚拟机时，可以设置每个插槽的内核数为1，则插槽数自动设为4；如内核数为2，则插槽数为2；如内核数为4，则插槽数为1。</li>
+<li><strong>分配原则：</strong> 1、插槽数不能超过主机的CPU数，否则多余的插槽数是无效的。2、每个插槽的内核数不能超过每CPU的内核数×超线程因子。</li>
+</ul>
+<p>在vSphere中，一旦违反以上两个原则之一，为虚拟机分配的实际CPU数将少于显示的CPU数。同时，在进行虚拟机vMotion时，也要考虑目的主机的硬件资源配置情况。</p>
+<p>比如，系统分配了4个CPU，1个插槽，实际上系统只能在一个物理CPU上运行，不利于系统运行大并发任务。
+曾经遇到过一个类似情况，分配的CPU数为8，但每个插槽的内核数为8，插槽数为1，系统启动都很正常，但跑数据库应用时查询响应非常慢，用户不可接受。后经过优化，CPU总数8保持不变，但调整每个插槽的内核数为2，插槽数为4，性能明显好转，查询响应很快。
+另：强烈建议选择“启用CPU热添加”，这样，当虚拟机因CPU计算资源不足时可以在线手动添加CPU数量而无需停机。如没选择该项，如欲增加CPU数，则只能先将虚拟机系统停机后手动添加。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/esxi/">ESXi</a>
+        
+            <a href="/tags/vmware/">VMware</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">windows远程桌面连接linux ubuntu centos</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/dell%E6%88%B4%E5%B0%942012%E5%B9%B4%E8%87%B32022%E5%B9%B4%E7%94%9F%E4%BA%A7%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9E%8B%E5%8F%B7%E5%88%97%E8%A1%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DELL戴尔2012年至2022年生产的服务器型号列表</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linuxcentos-top%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux(Centos) top命令的使用详解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux Centos7 firewall防火墙的基本操作</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/windows11-win11%E6%93%8D%E4%BD%9C%E9%85%8D%E7%BD%AE%E6%8A%80%E5%B7%A7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Windows11 Win11操作配置技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/"],"locale":{"admin":"👻屑博主","placeholder":"🎉留下你的脚印."},"pageview":true,"requiredMeta":["name","email"],"serverURL":"xxx"});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 L1nSn0w&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

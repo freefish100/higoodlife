@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on L1nSn0w&#39;s Blog</title>
+        <link>http://192.168.123.6:1313/post/</link>
+        <description>Recent content in Posts on L1nSn0w&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.123.6:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>windows远程桌面连接linux ubuntu centos</title>
+        <link>http://192.168.123.6:1313/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/</link>
+        <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/</guid>
+        <description>&lt;p&gt;&lt;strong&gt;windows远程桌面连接ubuntu（ubuntu20.04下测试通过）&lt;/strong&gt;&lt;br&gt;
+在Ubuntu上安装Xfce桌面环境。您可以使用以下命令安装Xfce桌面环境&lt;br&gt;
+&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安装xrdp&lt;br&gt;
+&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get install xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;启动xrdp服务&lt;br&gt;
+&lt;code&gt;sudo systemctl enable xrdp&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo systemctl enable --now xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置Ubuntu防火墙以允许RDP连接&lt;br&gt;
+&lt;code&gt;sudo ufw allow 3389/tcp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果连接不上，提示类似如下的错误，要检查用户名密码是否正确，否则重启一次unbuntu电脑.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;connection to sesman ip 127.0.0.1 port 3350
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sesman connect ok
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sending login info to session manager,please wait...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;login failed for display 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在Windows上打开远程桌面连接(或者运行“mstsc”)，输入Ubuntu主机的IP地址并点击“连接”。
+在“登录到Windows”窗口中，选择“使用其他帐户”选项，并输入Ubuntu的用户名和密码。
+单击“连接”按钮，等待几秒钟，即可连接到Ubuntu桌面。&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;windows远程桌面连接Centos（Centos7.9下测试通过）&lt;/strong&gt;&lt;br&gt;
+在CentOS 7.9上安装GNOME桌面环境&lt;br&gt;
+&lt;code&gt;sudo yum groupinstall &amp;quot;GNOME Desktop&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安装xrdp服务器&lt;br&gt;
+&lt;code&gt;sudo yum update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo yum install xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;启动xrdp服务&lt;br&gt;
+&lt;code&gt;sudo systemctl start xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置xrdp服务器使其在系统启动时自动启动&lt;br&gt;
+&lt;code&gt;sudo systemctl enable xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置防火墙以允许RDP连接：&lt;br&gt;
+&lt;code&gt;sudo firewall-cmd --add-port=3389/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在Windows上打开远程桌面连接(或者运行“mstsc”)，输入Ubuntu主机的IP地址并点击“连接”。
+在“登录到Windows”窗口中，选择“使用其他帐户”选项，并输入Ubuntu的用户名和密码。
+单击“连接”按钮，等待几秒钟，即可连接到Centos桌面。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>DELL戴尔2012年至2022年生产的服务器型号列表</title>
+        <link>http://192.168.123.6:1313/p/dell%E6%88%B4%E5%B0%942012%E5%B9%B4%E8%87%B32022%E5%B9%B4%E7%94%9F%E4%BA%A7%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9E%8B%E5%8F%B7%E5%88%97%E8%A1%A8/</link>
+        <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/dell%E6%88%B4%E5%B0%942012%E5%B9%B4%E8%87%B32022%E5%B9%B4%E7%94%9F%E4%BA%A7%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9E%8B%E5%8F%B7%E5%88%97%E8%A1%A8/</guid>
+        <description>&lt;p&gt;DELL戴尔2012年至2022年生产的服务器型号参考列表(来源chatgpt，可能有错漏)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;年份&lt;/th&gt;
+&lt;th&gt;机架式服务器型号&lt;/th&gt;
+&lt;th&gt;塔式服务器型号&lt;/th&gt;
+&lt;th&gt;主板芯片组&lt;/th&gt;
+&lt;th&gt;兼容的CPU型号&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2012&lt;/td&gt;
+&lt;td&gt;PowerEdge R720&lt;/td&gt;
+&lt;td&gt;PowerEdge T620&lt;/td&gt;
+&lt;td&gt;Intel C600&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 Series: 4-16 cores, up to 3.3 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2013&lt;/td&gt;
+&lt;td&gt;PowerEdge R720xd&lt;/td&gt;
+&lt;td&gt;PowerEdge T320&lt;/td&gt;
+&lt;td&gt;Intel C600&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2400 Series: 4-12 cores, up to 2.4 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2014&lt;/td&gt;
+&lt;td&gt;PowerEdge R730&lt;/td&gt;
+&lt;td&gt;PowerEdge T630&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v3 Series: 6-18 cores, up to 3.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2015&lt;/td&gt;
+&lt;td&gt;PowerEdge R730xd&lt;/td&gt;
+&lt;td&gt;PowerEdge T430&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v4 Series: 8-22 cores, up to 3.7 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016&lt;/td&gt;
+&lt;td&gt;PowerEdge R740&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 28 cores, up to 3.6 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;PowerEdge R740xd&lt;/td&gt;
+&lt;td&gt;PowerEdge T440&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 28 cores, up to 3.6 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2018&lt;/td&gt;
+&lt;td&gt;PowerEdge R740xd2&lt;/td&gt;
+&lt;td&gt;PowerEdge T340&lt;/td&gt;
+&lt;td&gt;Intel C622&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 28 cores, up to 3.6 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2019&lt;/td&gt;
+&lt;td&gt;PowerEdge R840&lt;/td&gt;
+&lt;td&gt;PowerEdge T140&lt;/td&gt;
+&lt;td&gt;Intel C622&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 28 cores, up to 3.6 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;PowerEdge R7525&lt;/td&gt;
+&lt;td&gt;PowerEdge T340&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7002 Series: up to 64 cores, up to 3.2 GHz&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7002 Series: up to 64 cores, up to 3.2 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;PowerEdge R750&lt;/td&gt;
+&lt;td&gt;PowerEdge T440&lt;/td&gt;
+&lt;td&gt;Intel C6525&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 40 cores, up to 4.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge R7515&lt;/td&gt;
+&lt;td&gt;PowerEdge T140&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7003 Series: up to 64 cores, up to 3.5 GHz&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7003 Series: up to 64 cores, up to 3.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge R750a&lt;/td&gt;
+&lt;td&gt;PowerEdge T650&lt;/td&gt;
+&lt;td&gt;Intel C626&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 40 cores, up to 4.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge R755&lt;/td&gt;
+&lt;td&gt;PowerEdge T750&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7003 Series: up to 64 cores, up to 3.5 GHz&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7003 Series: up to 64 cores, up to 3.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge R750xs&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Intel C626&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processors: up to 40 cores, up to 4.5 GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;DELL戴尔2012年至2022年生产的服务器型号参考列表(来源chatgpt，可能有错漏)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;年份&lt;/th&gt;
+&lt;th&gt;型号&lt;/th&gt;
+&lt;th&gt;主板芯片组&lt;/th&gt;
+&lt;th&gt;兼容的CPU&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2012&lt;/td&gt;
+&lt;td&gt;PowerEdge R720&lt;/td&gt;
+&lt;td&gt;Intel C602&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2012&lt;/td&gt;
+&lt;td&gt;PowerEdge T620&lt;/td&gt;
+&lt;td&gt;Intel C602&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2013&lt;/td&gt;
+&lt;td&gt;PowerEdge R730&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2013&lt;/td&gt;
+&lt;td&gt;PowerEdge T630&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2014&lt;/td&gt;
+&lt;td&gt;PowerEdge R730xd&lt;/td&gt;
+&lt;td&gt;Intel C612&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2014&lt;/td&gt;
+&lt;td&gt;PowerEdge T630&lt;/td&gt;
+&lt;td&gt;Intel C612&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2015&lt;/td&gt;
+&lt;td&gt;PowerEdge R730&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2015&lt;/td&gt;
+&lt;td&gt;PowerEdge T630&lt;/td&gt;
+&lt;td&gt;Intel C610&lt;/td&gt;
+&lt;td&gt;Intel Xeon E5-2600 v4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016&lt;/td&gt;
+&lt;td&gt;PowerEdge R740&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;PowerEdge R740xd&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C620&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2018&lt;/td&gt;
+&lt;td&gt;PowerEdge R740xd2&lt;/td&gt;
+&lt;td&gt;Intel C624&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2018&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C624&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2019&lt;/td&gt;
+&lt;td&gt;PowerEdge R740xd&lt;/td&gt;
+&lt;td&gt;Intel C622&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2019&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C622&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;PowerEdge R750&lt;/td&gt;
+&lt;td&gt;Intel C6525&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;PowerEdge R750a&lt;/td&gt;
+&lt;td&gt;Intel C6525&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;PowerEdge T640&lt;/td&gt;
+&lt;td&gt;Intel C622&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;PowerEdge R7525&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7002/7003&lt;/td&gt;
+&lt;td&gt;AMD EPYC 7002/7003&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;PowerEdge R750xs&lt;/td&gt;
+&lt;td&gt;Intel C6525&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;PowerEdge T650&lt;/td&gt;
+&lt;td&gt;Intel C624&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge R755&lt;/td&gt;
+&lt;td&gt;Intel C6525&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;PowerEdge T750&lt;/td&gt;
+&lt;td&gt;Intel C624&lt;/td&gt;
+&lt;td&gt;Intel Xeon Scalable Processor Family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
+        <title>Linux(Centos) top命令的使用详解</title>
+        <link>http://192.168.123.6:1313/p/linuxcentos-top%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</link>
+        <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/linuxcentos-top%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</guid>
+        <description>&lt;p&gt;top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。&lt;/p&gt;
+&lt;h2 id=&#34;top参数详解&#34;&gt;top参数详解&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/linnux_top_20221122a0.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;第一行，任务队列信息，同 uptime 命令的执行结果&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;系统时间：13:55:50&lt;/p&gt;
+&lt;p&gt;运行时间：up 1:47 min,&lt;/p&gt;
+&lt;p&gt;当前登录用户数： 1 user&lt;/p&gt;
+&lt;p&gt;负载均衡(uptime) load average: 0.00, 0.00, 0.00&lt;/p&gt;
+&lt;p&gt;average后面的三个数分别是1分钟、5分钟、15分钟的负载情况。load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值，这里的Load指的出于R(runing)和D(Uninterruptible sleep)的两种状态下的进程数。&lt;br&gt;
+在单核cpu情况下，如果load average 为0.4的表示，其cpu利用率只有40%， load average 为1，表示cpu利用率为100，如果load average 为高于1，比如为2.12，则说明cpu已经超负荷112% (2.12减满负荷1，即为超负荷部分)。&lt;br&gt;
+在多核cpu的机器上，需要将以上的1,5,15的负载除以对应的cpu核数，才好评估对应的cpu的负载情况。比如，一个cpu为40核的机器，其cpu过去一分钟的使用情况是8.26，则8.26/40=0.2065 ，说明cpu使用率只有20% 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第二行，Tasks — 任务（进程）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总进程:298 total, 运行:1 running, 休眠:297 sleeping, 停止: 0 stopped, 僵尸进程: 0 zombie&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第三行，cpu状态信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;0.1%us【user space】— 用户空间占用CPU的百分比。&lt;/p&gt;
+&lt;p&gt;0.2%sy【sysctl】— 内核空间占用CPU的百分比。&lt;/p&gt;
+&lt;p&gt;0.0%ni【】— 改变过优先级的进程占用CPU的百分比&lt;/p&gt;
+&lt;p&gt;99.6%id【idolt】— 空闲CPU百分比&lt;/p&gt;
+&lt;p&gt;0.0%wa【wait】— IO等待占用CPU的百分比&lt;/p&gt;
+&lt;p&gt;0.0%hi【Hardware IRQ】— 硬中断占用CPU的百分比&lt;/p&gt;
+&lt;p&gt;0.0%si【Software Interrupts】— 软中断占用CPU的百分比&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在top 命令下，按数字“1”可监控每个逻辑CPU的状况：如图，服务器有8个逻辑CPU，实际上是1个物理CPU。&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/linnux_top_20221122c.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+如果不按1，则在top视图里面显示的是所有cpu的平均值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第四行,内存状态&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;16265908k total, 3428784k used, 12143088k free, 694036k buffers/cache【缓存的内存量/缓冲的交换区总量】
+（buff/cache ，是在cpu读写硬盘数据时，为了提速在内存中开辟的缓冲(buffer针对写)或缓存区域(cache针对读)）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第五行，swap交换分区信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;8257532k total, 0k used, 8257532k free, 12529992k availe Mem&lt;br&gt;
+（avail mem 是创建新进程时，在不使用swap分区的情况下，能够分配的内存大小。这个大小可能比当前的free还大，这是因为buff/cache中的内存在创建进程时，若需要，也是可以抢占过来的。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;备注：&lt;/p&gt;
+&lt;p&gt;可用内存=free + buffer + cached&lt;/p&gt;
+&lt;p&gt;对于内存监控，在top里我们要时刻监控第五行swap交换分区的used，如果这个数值在不断的变化，说明内核在不断进行内存和swap的数据交换，这是真正的内存不够用了。&lt;/p&gt;
+&lt;p&gt;第四行中使用中的内存总量（used）指的是现在系统内核控制的内存数，&lt;/p&gt;
+&lt;p&gt;第四行中空闲内存总量（free）是内核还未纳入其管控范围的数量。&lt;/p&gt;
+&lt;p&gt;纳入内核管理的内存不见得都在使用中，还包括过去使用过的现在可以被重复利用的内存，内核并不把这些可被重新使用的内存交还到free中去，因此在linux上free内存会越来越少，但不用为此担心。&lt;/p&gt;
+&lt;p&gt;第六行，空行&lt;/p&gt;
+&lt;p&gt;第七行以下：各进程（任务）的状态监控&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PID — 进程id
+USER — 进程所有者
+PR — 进程优先级，是内核在调度该进程的优先级priority。 NI会影响PR。
+NI — 进程的nice值。负值表示高优先级，正值表示低优先级。PR 和 NI NI表示进程的Nice值。
+VIRT — 进程使用的虚拟内存总量，单位kb。 VIRT表示进程使用的所有内存大小，包括虚拟使用的swap内存和物理内存，VIRT=SWAP+RES。
+RES — 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA
+SHR — 是当前进程同其它进程共享内存的大小，单位kb，
+S —进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程
+%CPU — 上次更新到现在的CPU时间占用百分比
+%MEM — 进程使用的物理内存百分比
+TIME+ — 进程使用的CPU时间总计，精确到百分之一秒，单位1/100秒
+COMMAND — 进程名称（命令名/命令行）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;详解&lt;/p&gt;
+&lt;p&gt;VIRT：virtual memory usage 虚拟内存
+1、进程“需要的”虚拟内存大小，包括进程使用的库、代码、数据等
+2、假如进程申请100m的内存，但实际只使用了10m，那么它会增长100m，而不是实际的使用量&lt;/p&gt;
+&lt;p&gt;RES：resident memory usage 常驻内存
+1、进程当前使用的内存大小，但不包括swap out
+2、包含其他进程的共享
+3、如果申请100m的内存，实际使用10m，它只增长10m，与VIRT相反
+4、关于库占用内存的情况，它只统计加载的库文件所占内存大小&lt;/p&gt;
+&lt;p&gt;SHR：shared memory 共享内存
+1、除了自身进程的共享内存，也包括其他进程的共享内存
+2、虽然进程只使用了几个共享库的函数，但它包含了整个共享库的大小
+3、计算某个进程所占的物理内存大小公式：RES – SHR
+4、swap out后，它将会降下来&lt;/p&gt;
+&lt;p&gt;DATA
+1、数据占用的内存。如果top没有显示，按f键可以显示出来。
+2、真正的该程序要求的数据空间，是真正在运行中要使用的。&lt;/p&gt;
+&lt;p&gt;在top命令下按以下大写字母，分别按不同的维度进行排序&lt;br&gt;
+M 根据内存使用情况排序&lt;br&gt;
+P 根据CPU使用情况排序&lt;br&gt;
+N 根据进程ID排序&lt;br&gt;
+T 根据进程使用CPU的时间排序&lt;/p&gt;
+&lt;p&gt;top 运行中可以通过 top 的内部命令对进程的显示方式进行控制。内部命令如下：
+s – 改变画面更新频率
+l – 关闭或开启第一部分第一行 top 信息的表示
+t – 关闭或开启第一部分第二行 Tasks 和第三行 Cpus 信息的表示
+m – 关闭或开启第一部分第四行 Mem 和 第五行 Swap 信息的表示
+N – 以 PID 的大小的顺序排列表示进程列表
+P – 以 CPU 占用率大小的顺序排列进程列表
+M – 以内存占用率大小的顺序排列进程列表
+h – 显示帮助
+n – 设置在进程列表所显示进程的数量
+q – 退出 top
+s – 改变画面更新周期&lt;/p&gt;
+&lt;h2 id=&#34;top使用方法&#34;&gt;top使用方法&lt;/h2&gt;
+&lt;p&gt;使用格式：&lt;/p&gt;
+&lt;p&gt;top [-] [d] [p] [q] [c] [C] [S] [s] [n]&lt;/p&gt;
+&lt;p&gt;参数说明：&lt;/p&gt;
+&lt;p&gt;d：指定每两次屏幕信息刷新之间的时间间隔。当然用户可以使用s交互命令来改变之。&lt;/p&gt;
+&lt;p&gt;p:通过指定监控进程ID来仅仅监控某个进程的状态。&lt;/p&gt;
+&lt;p&gt;q:该选项将使top没有任何延迟的进行刷新。如果调用程序有超级用户权限，那么top将以尽可能高的优先级运行。&lt;/p&gt;
+&lt;p&gt;S：指定累计模式。&lt;/p&gt;
+&lt;p&gt;s：使top命令在安全模式中运行。这将去除交互命令所带来的潜在危险。&lt;/p&gt;
+&lt;p&gt;i：使top不显示任何闲置或者僵死进程。&lt;/p&gt;
+&lt;p&gt;c:显示整个命令行而不只是显示命令名。&lt;/p&gt;
+&lt;h2 id=&#34;常用命令说明&#34;&gt;常用命令说明&lt;/h2&gt;
+&lt;p&gt;Ctrl+L：擦除并且重写屏幕&lt;/p&gt;
+&lt;p&gt;K：终止一个进程。系统将提示用户输入需要终止的进程PID，以及需要发送给该进程什么样的信号。一般的终止进程可以使用15信号；如果不能正常结束那就使用信号9强制结束该进程。默认值是信号15。在安全模式中此命令被屏蔽。&lt;/p&gt;
+&lt;p&gt;i：忽略闲置和僵死进程。这是一个开关式命令。&lt;/p&gt;
+&lt;p&gt;q：退出程序&lt;/p&gt;
+&lt;p&gt;r:重新安排一个进程的优先级别。系统提示用户输入需要改变的进程PID以及需要设置的进程优先级值。输入一个正值将使优先级降低，反之则可以使该进程拥有更高的优先权。默认值是10。&lt;/p&gt;
+&lt;p&gt;S：切换到累计模式。&lt;/p&gt;
+&lt;p&gt;s：改变两次刷新之间的延迟时间。系统将提示用户输入新的时间，单位为s。如果有小数，就换算成m s。输入0值则系统将不断刷新，默认值是5 s。需要注意的是如果设置太小的时间，很可能会引起不断刷新，从而根本来不及看清显示的情况，而且系统负载也会大大增加。&lt;/p&gt;
+&lt;p&gt;f或者F：从当前显示中添加或者删除项目。&lt;/p&gt;
+&lt;p&gt;o或者O：改变显示项目的顺序&lt;/p&gt;
+&lt;p&gt;l：切换显示平均负载和启动时间信息。&lt;/p&gt;
+&lt;p&gt;m:切换显示内存信息。&lt;/p&gt;
+&lt;p&gt;t:切换显示进程和CPU状态信息。&lt;/p&gt;
+&lt;p&gt;c:切换显示命令名称和完整命令行。&lt;/p&gt;
+&lt;p&gt;M:根据驻留内存大小进行排序。&lt;/p&gt;
+&lt;p&gt;P:根据CPU使用百分比大小进行排序。&lt;/p&gt;
+&lt;p&gt;T:根据时间/累计时间进行排序。&lt;/p&gt;
+&lt;p&gt;W:将当前设置写入~/.toprc文件中。&lt;/p&gt;
+&lt;h2 id=&#34;查看多核cpu命令&#34;&gt;查看多核CPU命令&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mpstat -P ALL 和 sar -P ALL&lt;br&gt;
+说明：sar -P ALL &amp;gt; aaa.txt 重定向输出内容到文件aaa.txt&lt;br&gt;
+mpstat -P ALL&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/linnux_top_20221122b.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+sar -P ALL&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/linnux_top_20221122d.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+输出较多，可grep或者重定向至文件查看&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img width=&#34;647&#34; height=&#34;275&#34; src=&#34;../../../_resources/640_wx_fmt_png_wxfrom_5_wx_lazy__8e04e069565a47ffa.png&#34;/&gt;
+&lt;h2 id=&#34;进程字段排序&#34;&gt;进程字段排序&lt;/h2&gt;
+&lt;p&gt;默认进入top时，各进程是按照CPU的占用量来排序的，可通过键盘指令来改变排序字段，比如想监控哪个进程占用MEM最多，一般的使用方法如下：&lt;br&gt;
+1.敲击键盘“b”（打开/关闭加亮效果），可以通过敲击“y”键关闭或打开运行态进程的加亮效果。&lt;br&gt;
+2.敲击键盘“x”（打开/关闭排序列的加亮效果），top默认的排序列是“%CPU”，通过”shift+&amp;gt;”或”shift+&amp;lt;”可以向右或左改变排序列。&lt;/p&gt;
+&lt;h2 id=&#34;改变进程显示字段&#34;&gt;改变进程显示字段&lt;/h2&gt;
+&lt;p&gt;1.敲击“f”键，top进入另一个视图，在这里可以编排基本视图中的显示字段。这里列出了所有可在top基本视图中显示的进程字段，有”&lt;em&gt;”并且标注为大写字母的字段是可显示的，没有”&lt;/em&gt;”并且是小写字母的字段是不显示的。如果要在基本视图中显示“CODE”和“DATA”两个字段，可以通过敲击“r”和“s”键。&lt;/p&gt;
+&lt;h2 id=&#34;linux查看物理cpu个数核数逻辑cpu个数&#34;&gt;Linux查看物理CPU个数、核数、逻辑CPU个数&lt;/h2&gt;
+&lt;p&gt;总核数 = 物理CPU个数 X 每颗物理CPU的核数&lt;br&gt;
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数&lt;/p&gt;
+&lt;p&gt;查看物理CPU的数量&lt;br&gt;
+&lt;code&gt;cat /proc/cpuinfo | grep &amp;quot;physical id&amp;quot; | sort | uniq | wc -l&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看单个物理CPU中core的个数(即核数)&lt;br&gt;
+&lt;code&gt;cat /proc/cpuinfo | grep &amp;quot;cpu cores&amp;quot; | uniq&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看逻辑CPU的个数&lt;br&gt;
+&lt;code&gt;cat /proc/cpuinfo | grep &amp;quot;processor&amp;quot; | wc -l&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看CPU信息
+&lt;code&gt;cat /proc/cpuinfo | head -20&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看CPU信息（型号）&lt;br&gt;
+&lt;code&gt;cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看CPU主频&lt;br&gt;
+&lt;code&gt;cat /proc/cpuinfo |grep MHz|uniq&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看内 存信息&lt;br&gt;
+&lt;code&gt;cat /proc/meminfo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Free 命令,free查看总内存，使用空闲情况&lt;br&gt;
+&lt;code&gt;free -m&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;              total        used        free      shared  buff/cache   available&lt;/p&gt;
+&lt;p&gt;Mem:           7666        4275         680           2        2711        3095&lt;/p&gt;
+&lt;p&gt;Swap:             0           0           0&lt;/p&gt;
+&lt;p&gt;字段说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;total：总计物理内存的大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;used：已使用多大&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;free：可用有多少&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Shared：多个进程共享的内存总额&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Buffers/cached：磁盘缓存的大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vmstat-命令&#34;&gt;Vmstat 命令&lt;/h2&gt;
+&lt;p&gt;查看CPU使用率、内存情况、IO读写情况&lt;/p&gt;
+&lt;p&gt;`$ vmstat&lt;/p&gt;
+&lt;p&gt;procs &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;memory&amp;mdash;&amp;mdash;&amp;mdash;- &amp;mdash;swap&amp;ndash; &amp;mdash;&amp;ndash;io&amp;mdash;- -system&amp;ndash; &amp;mdash;&amp;mdash;cpu&amp;mdash;&amp;ndash;&lt;/p&gt;
+&lt;p&gt; r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st&lt;/p&gt;
+&lt;p&gt; 3  0      0 706708   1044 2768928    0    0  3822    80    0    0 11  7 78  4  0&lt;/p&gt;
+&lt;p&gt;`&lt;/p&gt;
+&lt;p&gt;字段说明：&lt;/p&gt;
+&lt;p&gt;Procs（进程）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;r: 运行队列中进程数量，这个值也可以判断是否需要增加CPU。（长期大于1）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;b: 等待IO的进程数量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Memory（内存）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;swpd: 使用虚拟内存大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;free: 空闲物理内存大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;buff: 用作缓冲的内存大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cache: 用作缓存的内存大小&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Swap：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;si: 每秒从交换区写到内存的大小，由磁盘调入内存&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;so: 每秒写入交换区的内存大小，由内存调入磁盘&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;IO：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;bi: 每秒读取的块数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bo: 每秒写入的块数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;系统：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;in: 每秒中断数，包括时钟中断。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cs: 每秒上下文切换数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;CPU（以百分比表示）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;us: 用户进程执行时间百分比(user time)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sy: 内核系统进程执行时间百分比(system time)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wa: IO等待时间百分比&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;id: 空闲时间百分比&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考链接：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://mp.weixin.qq.com/s?__biz=MzIxMTA2ODE1OQ==&amp;amp;mid=2651147056&amp;amp;idx=1&amp;amp;sn=84584798bffc0a6bca99e3cfc108019b&amp;amp;chksm=8cab1ea0bbdc97b6251535c83f6daf1d51077412cb891f99ff435a4776410adc3d21722a85de#rd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://mp.weixin.qq.com/s?__biz=MzIxMTA2ODE1OQ==&amp;mid=2651147056&amp;idx=1&amp;sn=84584798bffc0a6bca99e3cfc108019b&amp;chksm=8cab1ea0bbdc97b6251535c83f6daf1d51077412cb891f99ff435a4776410adc3d21722a85de#rd&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/a38cd22b28ad&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.jianshu.com/p/a38cd22b28ad&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Linux Centos 防火墙firewall配置只允许特定ip访问</title>
+        <link>http://192.168.123.6:1313/p/linux-centos-%E9%98%B2%E7%81%AB%E5%A2%99firewall%E9%85%8D%E7%BD%AE%E5%8F%AA%E5%85%81%E8%AE%B8%E7%89%B9%E5%AE%9Aip%E8%AE%BF%E9%97%AE/</link>
+        <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/linux-centos-%E9%98%B2%E7%81%AB%E5%A2%99firewall%E9%85%8D%E7%BD%AE%E5%8F%AA%E5%85%81%E8%AE%B8%E7%89%B9%E5%AE%9Aip%E8%AE%BF%E9%97%AE/</guid>
+        <description>&lt;p&gt;本实例情况如下：
+服务器的80端口，需要配置为只有允许的ip才可以访问，其它未经允许的ip不能访问。&lt;br&gt;
+&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;..&lt;br&gt;
+&lt;strong&gt;1. 启用防火墙，首先查看防火墙状态，看防火墙是否已开启&lt;/strong&gt;&lt;br&gt;
+#查看防火墙状态&lt;br&gt;
+&lt;code&gt;systemctl status firewalld&lt;/code&gt;&lt;br&gt;
+如果返回绿色active代表服务已启动。如果未启动，要开启防火墙并设置开机启动.&lt;br&gt;
+#开启防火墙&lt;br&gt;
+&lt;code&gt;systemctl start firewalld&lt;/code&gt;&lt;br&gt;
+#开机启动&lt;br&gt;
+&lt;code&gt;systemctl enable firewalld&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 关闭端口访问&lt;/strong&gt;&lt;br&gt;
+确保端口关闭。如果有已开放则要关闭端口，因为此处端口如果开放，是所有ip都可以进行访问。如果端口未开启则无需关闭。&lt;br&gt;
+#查询打开的端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --list-ports&lt;/code&gt;&lt;br&gt;
+#关闭端口80&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent&lt;/code&gt;&lt;br&gt;
+#重新载入一下防火墙设置，使设置生效&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+#查询打开的端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-all&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 开放指定的ip访问服务器的80端口&lt;/strong&gt;&lt;br&gt;
+#允许ip192.168.1.111访问80端口&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --permanent --add-rich-rule=&amp;#34;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.1.111&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;80&amp;#34; accept&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果是开放一个网段，就把ip改成ip网段：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --permanent --add-rich-rule=&amp;#34;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.1.0/24&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;80&amp;#34; accept&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;#重新载入一下防火墙设置，使设置生效&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+#查看已设置规则&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --list-rich-rules&lt;/code&gt;&lt;br&gt;
+**查看防火墙已开放端口列表：&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-all&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;到此，firewall配置只允许特定ip访问的步骤完成。&lt;br&gt;
+&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&lt;br&gt;
+&lt;strong&gt;其它一些常用命令&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看防火墙清单和已定制的规则&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-all&lt;/code&gt;&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/0a734df89452808cfcc44b5de581677f.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放或限制端口（端口开放，所有ip都可以访问）
+#开放80端口&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent&lt;/code&gt;&lt;br&gt;
+#重新载入一下防火墙设置，使设置生效&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+#通过如下命令查看80端口是否生效&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --query-port=80/tcp&lt;/code&gt;&lt;br&gt;
+#系统打开的所有端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --list-ports&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关闭端口&lt;br&gt;
+#关掉刚刚打开的80端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;批量开放或限制端口&lt;br&gt;
+#批量开放端口，如从9002到9005这之间的端口我们全部要打开&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --add-port=9002-9005/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+#同理，批量限制端口为&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-port=9002-9005/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放或限制ip（设置规则）&lt;br&gt;
+#开放IP为192.168.0.0的地址允许访问9001端口&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --permanent --add-rich-rule=&amp;#34;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.0.0&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;9001&amp;#34; accept&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+#查看已经设置的规则&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --list-rich-rules&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;#限制IP为192.168.0.0的地址禁止访问9001端口，即设置禁止访问的ip&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --permanent --add-rich-rule=&amp;#34;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.0.0&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;9001&amp;#34; reject&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;删除已设置规则&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;firewall-cmd --permanent --remove-rich-rule=&amp;#34;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34; 192.168.0.0&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;9001&amp;#34; accept&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如设置未生效，可尝试直接编辑规则文件，删掉原来的设置规则，重新载入一下防火墙即可&lt;br&gt;
+vi /etc/firewalld/zones/public.xml&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Linux Centos7 firewall防火墙的基本操作</title>
+        <link>http://192.168.123.6:1313/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;p&gt;Centos7中使用firewalld来作为防火墙，其底层调用的命令仍然是iptables等命令，但是在配置上发生了较大的变化。
+Centos7中有两个位置存放了firewall的配置文件，一个是/etc/firewalld，一个是/usr/lib/firewalld，前者是用户配置目录，后者是系统配置目录。/usr/lib/firewalld目录中存放的是firewalld提供的一些默认和备份的配置文件，一般不随意改变，/etc/firewalld目录下才是用户配置的真正生效的配置文件，只有在/etc/firewalld目录不存在或该目录下不存在配置文件的情况下/usr/lib/firewalld目录下的配置文件才会生效。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;zone的概念&lt;/strong&gt;&lt;br&gt;
+zone定义了防火墙对某个连接、网口（interface）或源地址的信任等级，我们可以把他理解为防火墙对不同的连接（connection）、网口（interface）或源地址（source address）划分到不同的zone当中，而不同的zone定义了不同的规则，因此防火墙可以针对不同的连接、网口（interface）或源地址做出不同的行为。例如，我们将10.12.18.201这个地址划分到zone1中，将10.12.18.202这个地址划分到zone2中，然后zone1中定义的规则为：允许访问3306端口，其余的端口都拒绝访问；zone2中定义的规则为：拒绝访问3306端口，其余的端口都允许访问。那么10.12.18.201就仅能访问本机的3306端口，10.12.18.202就仅不能访问本机的3306端口。每个zone的防火墙规则是通过/etc/firewalld/zones目录下的xml配置文件来配置的。
+zone和connection、interface、source address之间是一对多的关系，即一个connection、interface或source address仅能划分到一个zone中，而一个zone中可以包含多个connection、interface或source address。&lt;/p&gt;
+&lt;p&gt;对于一个接受到的请求具体使用哪个zone，firewalld是通过三种方法来判断的：&lt;br&gt;
+1、source，也就是源地址&lt;br&gt;
+2、interface，接收请求的网卡&lt;br&gt;
+3、firewalld.conf中配置的默认zone&lt;br&gt;
+这三个的优先级按顺序依次降低，也就是说如果按照source可以找到就不会再按interface去查找，如果前两个都找不到才会使用第三个，也就是学生在前面给大家讲过的在firewalld.conf中配置的默认zone。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;预定义的zone&lt;/strong&gt;&lt;br&gt;
+Centos7中firewalld为用户预定义了9个zone，分别为drop，block，public，external，dmz，work，home，internal，trusted。这9个zone的配置文件在/usr/lib/firewalld/zones目录下，通过查看他们的配置文件可以得知这9个zone的规则是怎么样的。&lt;br&gt;
+drop：任何传入本机的网络数据包都会被丢弃，并且不会回复，只允许本机对外访问其他服务器。&lt;br&gt;
+block：任何传入本机的网络连接请求都会被拒绝，并且会回复一条拒绝访问的消息。&lt;br&gt;
+public：用于本机处于公共网络环境的场景下，仅接受特定的连接请求，如仅接受某些特定的IP的连接请求，或仅对外部开放特定的某些端口。Centos 7 默认的public.xml文件中仅开放用于ssh连接请求的22端口和dhcpv6-client服务的546端口。&lt;br&gt;
+external：与public类似，Centos 7 默认仅开放用于ssh连接请求的22端口。&lt;br&gt;
+dmz：与external一样，Centos 7 默认也是仅开放用于ssh连接请求的22端口。&lt;br&gt;
+work：用于工作网络环境场景下，信任大部分的其他的计算机不会对本机进行攻击。Centos 7 默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，以及IPP协议的631端口。&lt;br&gt;
+home：用于家庭网络环境，信任网络上的其他计算机不会攻击本机。Centos 7默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，IPP协议的631端口，samba服务的137、138端口，mDNS服务的5353端口。&lt;br&gt;
+internal：与home一样，Centos 7默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，IPP协议的631端口，samba服务的137、138端口，mDNS服务的5353端口。
+trusted：所有对本机的网络连接请求都会被接受。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;（注：如果更改的防火墙配置，记得要执行 firewall-cmd &amp;ndash;reload 重新加载一次才会生效。）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;操作firewall防火墙的常用命令&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看防火墙状态&lt;br&gt;
+systemctl status firewalld&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关闭防火墙&lt;br&gt;
+systemctl stop firewalld&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开防火墙&lt;br&gt;
+systemctl start firewalld&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启防火墙&lt;br&gt;
+systemctl restart firewalld.service&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --add-port=80/tcp --permanent&lt;/code&gt; //在public作用域中开放80端口。&lt;br&gt;
+返回success为成功。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关闭端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-port=80/tcp --permanent&lt;/code&gt; //在public作用域中关闭80端口。&lt;br&gt;
+其中 &lt;code&gt;--zone&lt;/code&gt;是作用域，&lt;code&gt;--add-port=80/tcp&lt;/code&gt; 添加80端口，通讯协议为TCP，&lt;code&gt;--permanent&lt;/code&gt; 设置为永久生效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放一段端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --add-port=40000-45000/tcp --permanent&lt;/code&gt;&lt;br&gt;
+重新加载Firewalld守护程序以使更改生效：&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看开放的端口列表&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --list-ports&lt;/code&gt; //列出public作用域开放的端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-all&lt;/code&gt; //列出全部开放的端口（并能查看到当前活动的作用域）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看与公共区域关联的防火墙规则或服务&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-all&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看与某个区域关联的防火墙规则或服务，例如查看block这个区域&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=block --list-all&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将某个source(IP地址)划分到某个zone的命令如下：&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] [--zone=zone] --add-source=source&lt;/code&gt; &lt;br&gt;
+例如：&lt;br&gt;
+&lt;code&gt;firewall-cmd --permanent --zone=trusted --add-source=192.168.5.112&lt;/code&gt;&lt;br&gt;
+这条命令会将192.168.5.112这个ip划分到trusted这个zone，&lt;code&gt;-–permanent&lt;/code&gt;参数会将该配置写入trusted这个zone的配置文件trusted.xml中，使其永久生效。如果不加–permanent，则只会临时生效，重启防火墙或者调用&lt;code&gt;firewall-cmd --reload&lt;/code&gt;重新加载配置文件会使得该项配置失效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将某个网口（interface）划分到某个zone的命令如下：&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] [--zone=zone] --add-interface=interface&lt;/code&gt;&lt;br&gt;
+例如：&lt;br&gt;
+&lt;code&gt;firewall-cmd --permanent --zone=block --add-interface=ens33&lt;/code&gt;&lt;br&gt;
+这条命令会将ens33这个网口划分到block这个zone，这样其他机器访问本机的ens33网口时就会默认走这个zone。&lt;br&gt;
+如果某个连接请求没有划分到任何一个zone，那么就会走默认的zone，Centos7 默认情况下，默认zone为public。可以通过以下命令查看或者修改默认zone。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取默认的zone：&lt;br&gt;
+&lt;code&gt;firewall-cmd --get-default-zone&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改默认的zone：&lt;br&gt;
+&lt;code&gt;firewall-cmd --permanent --set-default-zone=[zone]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;创建新的区域&lt;/strong&gt;&lt;br&gt;
+firewalld还允许您创建自己的区域。当您想要创建每个应用程序的规则时，这很方便。在以下示例中，我们将创建一个名为memcached的新分区，打开端口11211，并仅允许从IP地址192.168.100.30进行访问：&lt;br&gt;
+&lt;code&gt;firewall-cmd --new-zone=visitors --permanent&lt;/code&gt;&lt;br&gt;
+开放端口添加端口&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=visitors --add-port=80/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=visitors --add-port=53/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=visitors --add-source=10.10.2.0/24 --permanent&lt;/code&gt;&lt;br&gt;
+重新加载Firewalld守护程序以激活更改：&lt;br&gt;
+&lt;code&gt;firewall-cmd --reload&lt;/code&gt;&lt;br&gt;
+&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&lt;br&gt;
+&lt;strong&gt;其他的一些相关的命令：&lt;/strong&gt;&lt;br&gt;
+列出该zone下绑定了哪些interface：
+&lt;code&gt;firewall-cmd [--zone=zone] --list-interfaces&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将该interface绑定到另一个zone上：&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] [--zone=zone] --change-interface=interface&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果该interface之前绑定到了某个zone，可以取消绑定，取消绑定后，会走默认的zone：&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] --remove-interface=interface&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;与source相关的：&lt;/strong&gt;&lt;br&gt;
+把某个ip绑定到source中&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] [--zone=zone] --add-source=source&lt;/code&gt;&lt;br&gt;
+例如：&lt;br&gt;
+&lt;code&gt;firewall-cmd --permanent --zone=public --add-source=192.168.1.111&lt;/code&gt;&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/d4ff13f3223bcbbd278b0fbc507ea060.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;从某个source中把某个ip取消绑定(删除绑定)&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] --remove-source=source&lt;/code&gt;&lt;br&gt;
+例如：&lt;br&gt;
+&lt;code&gt;firewall-cmd --permanent --zone=public --remove-source=192.168.1.111&lt;/code&gt;&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/06cf54296689c81eba8b7c4d98053648.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;查看source中的绑定&lt;br&gt;
+&lt;code&gt;firewall-cmd [--permanent] [--zone=zone] --list-sources&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;向firewalld中添加规则：&lt;/strong&gt;&lt;br&gt;
+将服务添加到特定的区域&lt;br&gt;
+指定特定的zone区域名称，并且使用&amp;ndash;add-service添加服务名称&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --add-service=dns --permanent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;从区域中删除(删除)服务&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-service=dns --permanent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如何允许/打开TCP/UDP端口/协议&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --add-port=8080/tcp --permanent&lt;/code&gt;
+验证结构，可以使用以下命令验证&lt;br&gt;
+&lt;code&gt;firewall-cmd --list-ports&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;拒绝/阻止TCP/UDP端口/协议&lt;br&gt;
+&lt;code&gt;firewall-cmd --zone=public --remove-port=23/tcp --permanent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;打开端口和源IP&lt;br&gt;
+Firewalld还允许您快速启用来自可信IP地址或特定端口的所有流量，而无需创建服务定义&lt;br&gt;
+开放源IP：&lt;br&gt;
+要允许来自特定IP地址(或范围)的所有传入流量，请使用&amp;ndash;zone选项指定区域，并使用&amp;ndash;add-source选项指定源IP。例如，要允许公共区域中来自192.168.172.32的所有传入流量，请运行：
+&lt;code&gt;firewall-cmd --zone=public --add-source=192.168.172.32&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>VMware ESXI vCenter 备忘笔记</title>
+        <link>http://192.168.123.6:1313/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h2 id=&#34;网卡信息查询&#34;&gt;网卡信息查询&lt;/h2&gt;
+&lt;p&gt;查看所有网卡：&lt;br&gt;
+esxcfg-nics -l&lt;br&gt;
+查看更详细的网上信息：&lt;br&gt;
+esxcli network nic list&lt;br&gt;
+查看对应网卡驱动和固件，如下查看vmnic0对应的驱动和固件：&lt;br&gt;
+esxcli network nic get -n vmnic0&lt;br&gt;
+显示网卡的VID，DID 等信息：&lt;br&gt;
+vmkchdev -l | grep vmnic0&lt;br&gt;
+然后去VMware网站查询兼容情况，如果不兼容，去对应硬件厂商找到对应固件更新。各硬件厂商更新fireware方式略有不同，具体联系对应硬件厂商。 VMware网站下载对应的网卡驱动，会得到一个zip压缩包，解压缩后有两个文件，一个vib格式，一个zip格式。用如下命令更新： esxcli software vib install -v {VIBFILE}&lt;br&gt;
+或&lt;br&gt;
+esxcli software vib install -d {OFFLINE_BUNDLE}&lt;br&gt;
+(注：如果执行安装后提示could not find a trusted signer，可以在命令后添加参数 –no-sig-check) 建议使用第一种更新方式，注意，vib存放路径用完整路径。之后重启主机。&lt;br&gt;
+……………………………………………&lt;/p&gt;
+&lt;h2 id=&#34;给虚拟机添加usb设备例如u盘&#34;&gt;给虚拟机添加USB设备，例如U盘&lt;/h2&gt;
+&lt;p&gt;1、把USB设备插入到物理主机&lt;br&gt;
+2、编辑虚拟机设置–添加其它其他设备–USB设备–保存设置。&lt;br&gt;
+注：同一个USB设备，同时只能添加到一台虚拟机中。在虚拟机中删除该USB设备后，才能添加到其它虚拟机中。&lt;br&gt;
+……………………………………………&lt;/p&gt;
+&lt;h2 id=&#34;esxi65开启开启嵌套虚拟化&#34;&gt;esxi6.5开启开启嵌套虚拟化&lt;/h2&gt;
+&lt;p&gt;Esxi主机开启ssh，修改 /etc/vmware/config 配置文件，在配置文件后面加入如下配置：vhv.enable = “TRUE” ，然后reboot重启ESXI主机。 等开机后，打开Esxi上的虚拟机，登陆，查看虚拟化是否开启（vmx是Inter 处理器，svm是AMD处理器） egrep ‘(vmx|svm)’ /proc/cpuinfo&lt;br&gt;
+另外在虚拟交换机的端口组需要开启混杂功能，要不通信有问题，开启混杂的原因：VMware 虚拟交换机上只能感知到其上的虚拟机，但无法感知到嵌套后其上虚拟机的子虚拟机的 MAC地址，所以通信时候，用子虚拟机通信到VMware 最底层虚拟交换机就会丢包。&lt;br&gt;
+要将端口组或虚拟交换机配置为允许混杂模式，请执行以下操作：&lt;br&gt;
+使用 vSphere Client 登录到 ESXi/ESX 主机或 vCenter Server。在清单中选择 ESXi/ESX 主机。单击配置选项卡。在“硬件”部分，单击网络。单击要启用混杂模式的虚拟交换机的属性。 选择要修改的虚拟交换机或端口组，然后单击编辑。单击安全选项卡。从“混杂模式”下拉菜单中，单击接受。&lt;/p&gt;
+&lt;p&gt;配置虚拟机开机自启动 导航器–&amp;gt;主机–&amp;gt;管理–&amp;gt;系统–&amp;gt;自动启动中将已启用设置为&amp;quot;是&amp;quot;，然后返回到虚拟机列表页面，右击需要自动启动的某个虚拟机–自动启动–启用。 默认情况下启动和停止延迟都是120秒，默认动作是关机，不等待停止信号。即开机后等待120秒后启动虚拟机，关机也是等待120秒，避免宿主机启动时压力过大。停止操作和等待检测信号需要连用，意思是宿主机关机时给虚拟机发出关机的信号，并等待120秒使虚机关机，120秒后虚机仍未完成关机动作则不等待，断电。&lt;/p&gt;
+&lt;h2 id=&#34;vmware-ovf-tool导出主虚拟主机&#34;&gt;VMware OVF Tool导出主虚拟主机&lt;/h2&gt;
+&lt;p&gt;虚拟主机先关机 进入VMware OVF Tool的安装目录，在地址栏中运行cmd&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072901.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072902.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;输入如下命令格式：&lt;br&gt;
+ovftool.exe vi://root:@192.168.1.41/CentOS8_192.168.1.49 c:\ovf\CentOS8_192.168.1.49&lt;br&gt;
+其中“192.168.1.41”是虚拟机的IP地址，“CentOS8_192.168.1.49”是虚拟机名称，“c:\ovf\”是要复制到的路径。 回车后，输入ESXI管理员密码，等待导出完成即可。&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/OVFTool2022072903.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;许可证&#34;&gt;许可证&lt;/h2&gt;
+&lt;p&gt;VMware-ESXi-6.7.0&lt;br&gt;
+0A65P-00HD0-3Z5M1-M097M-22P7H&lt;br&gt;
+VMware vCenter/vSphere/vSan/Esxi/7.0&lt;br&gt;
+&lt;strong&gt;VMware vSphere 7.x&lt;/strong&gt;&lt;br&gt;
+vSphere ESXi 7.0 Enterprise Plus&lt;br&gt;
+JJ2WR-25L9P-H71A8-6J20P-C0K3F&lt;br&gt;
+HN2X0-0DH5M-M78Q1-780HH-CN214&lt;br&gt;
+JH09A-2YL84-M7EC8-FL0K2-3N2J2&lt;br&gt;
+……………………………&lt;br&gt;
+&lt;strong&gt;vCenter 7.0 Standard&lt;/strong&gt;&lt;br&gt;
+104HH-D4343-07879-MV08K-2D2H2&lt;br&gt;
+406DK-FWHEH-075K8-XAC06-0JH08&lt;br&gt;
+…………………………&lt;br&gt;
+&lt;strong&gt;VSAN 7.0 Enterprise Plus&lt;/strong&gt;&lt;br&gt;
+HN0D8-AAJ1Q-07D00-6U924-CX224&lt;br&gt;
+50008-221DH-M7E99-A9CKM-A1030&lt;br&gt;
+HN0NH-62051-H75E9-P38RM-0H870&lt;br&gt;
+…………………………….&lt;br&gt;
+&lt;strong&gt;vSphere 6 Enterprise&lt;/strong&gt;&lt;br&gt;
+5Y04A-8934J-M85P1-3K37H-9P04D&lt;br&gt;
+JA2NH-2Z191-08501-NCAX2-2VK4F&lt;br&gt;
+0F2T2-DCK93-M88M8-7J9E4-16RJ0&lt;br&gt;
+NU0EK-05100-M80N9-501N2-8G81D&lt;/p&gt;
+&lt;p&gt;要迁移磁盘大于 2TB 的虚拟机，源和目标 ESXi 主机必须为版本 6.0 或更高版本。ESXI的嵌套，CPU要开启硬件虚拟化。物理主机需要把网络端口组设置安全策略为混杂模式，否则嵌套的虚拟机的网络会不通。&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072904.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072905.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;br&gt;
+&lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072906.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;VMware vSphere Hypervisor (ESXi) 与 VMware vCenter Server 对应的支持版本，绿色的就是支持的。 &lt;img src=&#34;https://cdn.staticaly.com/gh/freefish100/pics@main/img/vm2022072907.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;集群报错处理&#34;&gt;集群报错处理&lt;/h2&gt;
+&lt;p&gt;数据中心启用HA后 HA代理报错&lt;br&gt;
+问题一 ：此主机上的vsphere HA无法访问隔离地址&lt;br&gt;
+在每台ESXi主机上 的 网络配置 默认网关都配置的 管理IP 的一个网关，如果之前设置的默认网关IP地址ping不通，只能修改HA高级属性的默认配置了。&lt;br&gt;
+一般默认隔离地址是管理IP对应的网关，如果没有网关，也可以通过高级设置指定某具体ip地址作为隔离地址。&lt;br&gt;
+das.isolationaddress[1]&lt;br&gt;
+//设置为需要的网关地址，可以设置10个隔离地址&lt;br&gt;
+das.usedefaultisolationaddress&lt;br&gt;
+//设置为false&lt;br&gt;
+即可。&lt;/p&gt;
+&lt;p&gt;问题二 ：此主机上的vsphere HA检测信号数据存储（少于2个）&lt;br&gt;
+两个或多个主机做HA，需要存储系统提供vMotion的心跳信号。VMware默认是两个心跳信号才确定执行vMotion。如果你只有一台存储，或者 只分了存储上的1个LUN，就会出现上面这个提示。如果想关闭这个提示，可以进行如下操作：ESXi对只有一个DataStore的警告提示：&lt;br&gt;
+1、选择HA-配置-vSphere HA-高级选项。 2、在选项窗口输入das.ignoreinsufficienthbdatastore，在数值窗口输入true 即可。&lt;br&gt;
+………………………………..&lt;br&gt;
+当集群中只有一台esxi时，集群会提示HA故障切换资源不足。&lt;br&gt;
+群集显示红色警告因为只添加了一台主机，无法实现群集功能，当你把两台Esxi 都添加进来后，这个提示就自动消失了！&lt;br&gt;
+……………………………..&lt;br&gt;
+“此主机当前没有管理网络冗余&amp;quot;, “该主机的vSphere HA检测信号数据存储数目为0，少于要求数目:2“&lt;br&gt;
+首先这是两个报警&lt;br&gt;
+1、此主机当前没有管理网络冗余&lt;br&gt;
+报警原因：因为我当前主机所使用的是单网卡，所有没有多余的管理网络去冗余；&lt;br&gt;
+解决方法：进入vcenter—选择群集—编辑设置—Vsphere HA—高级选项—键入das.ignoreRedundantNetWarning，在值中输入true—确定—右键群集中主机—重新配置vsphere HA–报警消失。&lt;br&gt;
+2、该主机的vSphere HA检测信号数据存储数目为0，少于要求数目:2&lt;br&gt;
+报警原因：因为只有个物理网卡、且被管理网络占用，所以HA数据存储检测信号所检测到的数据存储数目为0&lt;br&gt;
+解决方法:进入vcenter—选择群集—编辑设置—Vsphere HA—高级选项—键入das.ignoreinsufficienthbdatastore，在值中输入true—确定—无需重新配置vsphere HA，稍等自动报警消失。&lt;br&gt;
+备注：从vsphere5.0开始HA加入了数据存储检测信号的功能，此功能的作用是当HA群集中首选主机无法通过管理网络与从属主机通信时，首选主机将使用数据存储检测信号来判断该从属主机是网络隔离还是出现故障（首选主机通过管理网络和数据存储检测信号检测从属主机状态），若从属主机停止数据存储检测信号，则认定从属主机发生故障，并将其所载虚拟机在别处启动；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ESXI主机报错收集：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将虚拟网卡添加到 iSCSI 适配器报错处理&lt;br&gt;
+键：haTask-ha-host-vim.host.IscsiManager.bindVnic-1920719847&lt;br&gt;
+描述：将虚拟网卡添加到 iSCSI 适配器&lt;br&gt;
+状况：失败 - VMkernel 虚拟网卡适配器 vmk0 具有多个物理上行链路。&lt;br&gt;
+错误：VMkernel 网络适配器 vmk0 与多个物理网络适配器相关联。要使用 VMkernel 网络适配器进行 iSCSI 端口绑定，必须只将其与一个物理网络适配器相关联。&lt;br&gt;
+解决方法：要使用 VMkernel 网络适配器进行 iSCSI 端口绑定，必须将此虚拟网卡只与一个物理网络适配器相关联，就是每个虚拟交换机下，只添加一个上行链路。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vmware-vcenter-server-设置ha和drs功能&#34;&gt;VMware vCenter Server 设置HA和DRS功能&lt;/h2&gt;
+&lt;p&gt;1、 启动HA功能&lt;br&gt;
+标注：前面虽然虽然启用HA功能，因为没有添加任何主机，群集会自动把HA的功能关闭，所以，现在需要手动开启。&lt;br&gt;
+2、选择 “打开vSpherer HA”和 “启用Proactive HA”功能&lt;br&gt;
+HA功能响应机制设置&lt;br&gt;
+一台VMware EXSI主机发生故障时自动迁移到另外一台VMware EXSI主机上，但是自动迁移虚拟机过程中会重启虚拟机系统。&lt;br&gt;
+3、配置DRS功能&lt;br&gt;
+DRS功能暂时先设置成手动，如果选择全自动会影响本教程HA功能测试。 原因是全自动DRS功能会自动检查两台VMware EXSI主机上的虚拟机资源利用率， 如果一台VMware EXSI主机资源利用率过高，会自动把虚拟机重新启动迁移到另外一台VMware EXSI主机上。&lt;/p&gt;
+&lt;h2 id=&#34;导出克隆虚拟机&#34;&gt;导出(克隆)虚拟机&lt;/h2&gt;
+&lt;p&gt;1、进入“数据存储浏览器“，可以看到以虚拟机命名的一些目录，目录下的文件夹名一般是虚拟机名称，创建虚拟机时按虚拟机名称创建了同名文件夹。点击上方“创建目录”按钮，输入文件夹名，建议和想要新建的虚拟机名称一致，便于维护。&lt;br&gt;
+2、然后进入需要复制的虚拟机目录（就是刚刚我们关机了的那台机器），将后将缀名为.vmx（虚拟机）和.vmdk（虚拟磁盘）的文件进行点击右键后复制。其实把 .nvram .vmxf 都可以复制过去，除了.log 选择新虚拟机目录，点击右键后进行粘贴。&lt;br&gt;
+3、粘贴完成之后，右键点击. vmx（虚拟机）文件，再点击“注册虚拟机”。&lt;br&gt;
+4、成功之后会多出一个虚拟机（它不会自己修改虚拟机名称的），重命名输入新的虚拟机名称，建议与虚拟机文件夹名称一致，便于维护。&lt;br&gt;
+5、首次运行虚拟机时，ESXi会询问虚拟机文件的来源，这时候我们选择“我已复制”，这样ESXi就会自动修改虚拟机中的唯一标识，最重要的就是网卡的MAC地址，这是避免冲突的最好办法。&lt;/p&gt;
+&lt;h2 id=&#34;esxi-cpu-vsphere正确分配虚拟机cpu资源&#34;&gt;ESXI CPU VSphere正确分配虚拟机CPU资源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CPU资源说明：&lt;/strong&gt; VMware vSphere为虚拟机分配的CPU数是指逻辑处理器数。每台主机（服务器）拥有的逻辑处理器总数是不一样的，为物理CPU数量×每CPU的核(Core)数×超线程因子，当硬件支持超线程且在BIOS中开启超线程时，超线程因子为2，否则为1。例如某服务器为4C 8核并且支持超线程时，其CPU内核只有4×8＝32个，插槽数即CPU数＝4，vSphere可分配的该主机逻辑处理器数为4×8×2＝64。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPU资源分配：&lt;/strong&gt; vSphere给虚拟机分配的逻辑CPU数等于插槽数×每插槽的内核数，其中插槽数不能直接设置，可通过调整另两个数量来间接设置。如分配4个逻辑CPU给某虚拟机时，可以设置每个插槽的内核数为1，则插槽数自动设为4；如内核数为2，则插槽数为2；如内核数为4，则插槽数为1。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分配原则：&lt;/strong&gt; 1、插槽数不能超过主机的CPU数，否则多余的插槽数是无效的。2、每个插槽的内核数不能超过每CPU的内核数×超线程因子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在vSphere中，一旦违反以上两个原则之一，为虚拟机分配的实际CPU数将少于显示的CPU数。同时，在进行虚拟机vMotion时，也要考虑目的主机的硬件资源配置情况。&lt;/p&gt;
+&lt;p&gt;比如，系统分配了4个CPU，1个插槽，实际上系统只能在一个物理CPU上运行，不利于系统运行大并发任务。
+曾经遇到过一个类似情况，分配的CPU数为8，但每个插槽的内核数为8，插槽数为1，系统启动都很正常，但跑数据库应用时查询响应非常慢，用户不可接受。后经过优化，CPU总数8保持不变，但调整每个插槽的内核数为2，插槽数为4，性能明显好转，查询响应很快。
+另：强烈建议选择“启用CPU热添加”，这样，当虚拟机因CPU计算资源不足时可以在线手动添加CPU数量而无需停机。如没选择该项，如欲增加CPU数，则只能先将虚拟机系统停机后手动添加。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Windows11 Win11操作配置技巧</title>
+        <link>http://192.168.123.6:1313/p/windows11-win11%E6%93%8D%E4%BD%9C%E9%85%8D%E7%BD%AE%E6%8A%80%E5%B7%A7/</link>
+        <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/windows11-win11%E6%93%8D%E4%BD%9C%E9%85%8D%E7%BD%AE%E6%8A%80%E5%B7%A7/</guid>
+        <description>&lt;h2 id=&#34;安装winows11时跳过强制联网&#34;&gt;安装winows11时跳过强制联网&lt;/h2&gt;
+&lt;p&gt;方法一：在弹出强制联网的步骤页面时，插上网线或者连接wifi，在点击“下一步”后，马上拔出网线或断开wifi，等待一下，接着继续后面的安装操作。&lt;br&gt;
+方法二：按住shift+F10，笔记本有可能是shift+Fn+F10，跳出命令界面，输入：taskmgr 然后回车，打开如下图一样的任务管理器，找到“网络连接流”进程（如果进程名不是中文名的时候，就找 OOBENetworkConnectionFlow.exe又或者Network Connection Flow进程），点结束任务，即可跳过。
+以上方法只适合22H2之前的版本，如果是22H2的版本，侧需如下方法来跳过强制联网和微软账号：&lt;br&gt;
+第一启动前，要先断网，然后开机，当进入到“让我们为你连接网络”要求联网的页面时，同时按下 shift+F10 这两个组合键，会调出cmd窗口的，在&amp;quot;C:\Windows\System32&amp;gt;&amp;ldquo;的后面输入oobe\bypassnro.cmd 然后按回车键，系统自动重启。  当重启进入到“立即连接以快速开始使用你的设备”页面，或者“什么是微软帐户”页面时，点击下面的“我没有Internet连接”或者“暂时跳过”，然后再点击“继续执行受限设置”，最后根据界面的提示操作即可完成。&lt;/p&gt;
+&lt;h2 id=&#34;windows11离线解包系统&#34;&gt;windows11离线解包系统：&lt;/h2&gt;
+&lt;p&gt;1、先拔出网线（断网），电脑开机。&lt;br&gt;
+2、当进入到选择国家、或者要求联网、或者要求输入微软账号中的任何一个页面时，同时按下 ctrl+shift+F3 这三个组合键，系统自动重启。&lt;br&gt;
+3、重启完成进入桌面后，会自动弹出一个系统工具对话窗口的，直接点击窗口下的“确定”按钮，系统会再次自动重启。&lt;br&gt;
+4、当重启进入到“让我们为你连接网络”要求联网的页面时，同时按下 shift+F10 这两个组合键，会调出cmd窗口的，在&amp;quot;C:\Windows\System32&amp;gt;&amp;ldquo;的后面输入oobebypassnro.cmd 然后按回车键，系统会再一次自动重启。&lt;br&gt;
+5、当重启进入到“立即连接以快速开始使用你的设备”页面，或者“什么是微软帐户”页面时，点击下面的“我没有Internet连接”或者“暂时跳过”，然后再点击“继续执行受限设置”，最后根据界面的提示操作即可完成。&lt;/p&gt;
+&lt;h2 id=&#34;解决win11右键菜单折叠问题&#34;&gt;解决Win11右键菜单折叠问题&lt;/h2&gt;
+&lt;p&gt;切换回经典右键菜单
+首先Win+X打开Windows powershell（管理员）（PS：现在貌似叫Windows 终端（管理员））
+输入如下内容后回车
+reg add &amp;ldquo;HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&amp;rdquo; /f /ve&lt;br&gt;
+然后 Win+E 打开Windows资源管理器，再 Ctrl+Shift+Esc，任务管理器重启Windows资源管理器（重启电脑也可以），
+完成。&lt;br&gt;
+如需重新恢复到新版右键菜单（没人会这么干吧）
+reg delete &amp;ldquo;HKCU\Software\Classes\CLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}&amp;rdquo; /f
+选择想要的类型，粘贴后回车。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>实用网址收录(不定时更新)</title>
+        <link>http://192.168.123.6:1313/p/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0/</link>
+        <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0/</guid>
+        <description>&lt;p&gt;【2022年6月27日】&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/pricing/free-services/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure云服务平台永久免费和限时免费项目&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure文本转语音&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/speech-to-text/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure语音转文本&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/speech-translation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure语音翻译&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图片在线去背景
+&lt;a class=&#34;link&#34; href=&#34;https://www.photoroom.com/tools/remove-object-from-photo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.photoroom.com/tools/remove-object-from-photo/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Chorme谷歌浏览器插件下载CRX搜搜&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.crxsoso.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.crxsoso.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;硬盘容量整数分区在线计算工具 支持 NTFS 和 FAT32&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://tool.lu/partition/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tool.lu/partition/index.html&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.iplaysoft.com/tools/partition-calculator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.iplaysoft.com/tools/partition-calculator/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RAID 容量计算器&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.seagate.com/cn/zh/internal-hard-drives/raid-calculator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.seagate.com/cn/zh/internal-hard-drives/raid-calculator/&lt;/a&gt;
+（希捷科技）
+&lt;a class=&#34;link&#34; href=&#34;https://www.synology.cn/zh-cn/support/RAID_calculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.synology.cn/zh-cn/support/RAID_calculator&lt;/a&gt;
+（群晖科技）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows/Office 各版本镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://next.itellyou.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://next.itellyou.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://msdn.itellyou.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://msdn.itellyou.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;http://www.imsdn.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.imsdn.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://hellowindows.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hellowindows.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://msdn.sjjzm.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://msdn.sjjzm.com/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.xitongku.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.xitongku.com/&lt;/a&gt; (含office)&lt;br&gt;
+windows11官网iso镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download/windows11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.microsoft.com/zh-cn/software-download/windows11&lt;/a&gt;&lt;br&gt;
+windows10官网iso镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download/windows10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.microsoft.com/zh-cn/software-download/windows10&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微软Windows密钥管理服务 (KMS) 客户端激活和通用批量许可证密钥 (GVLK)，Windows全系列。安装产品密钥命令 &amp;quot; slmgr /ipk 密钥 &amp;ldquo;， 如 slmgr /ipk D2N9P-3P6X9-2R39C-7RTCD-MDVJX&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在线文件转换器Convertio。Convertio是一个在线文件格式转换工具网站，可以转换的类型有：文档、图像、音频、视频、电子书、字体等等。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://convertio.co/zh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://convertio.co/zh/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MuseTransfer是一款极简有趣的大文件传输工具，无需下载客户端，甚至无需注册，打开网页即可全速上传或下载超大文件。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://musetransfer.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://musetransfer.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Markdown 语法官方教程&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://markdown.com.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://markdown.com.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

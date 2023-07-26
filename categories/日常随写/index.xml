@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>日常随写 on L1nSn0w&#39;s Blog</title>
+        <link>http://192.168.123.6:1313/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E5%86%99/</link>
+        <description>Recent content in 日常随写 on L1nSn0w&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.123.6:1313/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E5%86%99/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>实用网址收录(不定时更新)</title>
+        <link>http://192.168.123.6:1313/p/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0/</link>
+        <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E6%94%B6%E5%BD%95%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0/</guid>
+        <description>&lt;p&gt;【2022年6月27日】&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/pricing/free-services/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure云服务平台永久免费和限时免费项目&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure文本转语音&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/speech-to-text/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure语音转文本&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://azure.microsoft.com/zh-cn/services/cognitive-services/speech-translation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微软Azure语音翻译&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图片在线去背景
+&lt;a class=&#34;link&#34; href=&#34;https://www.photoroom.com/tools/remove-object-from-photo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.photoroom.com/tools/remove-object-from-photo/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Chorme谷歌浏览器插件下载CRX搜搜&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.crxsoso.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.crxsoso.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;硬盘容量整数分区在线计算工具 支持 NTFS 和 FAT32&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://tool.lu/partition/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tool.lu/partition/index.html&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.iplaysoft.com/tools/partition-calculator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.iplaysoft.com/tools/partition-calculator/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RAID 容量计算器&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.seagate.com/cn/zh/internal-hard-drives/raid-calculator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.seagate.com/cn/zh/internal-hard-drives/raid-calculator/&lt;/a&gt;
+（希捷科技）
+&lt;a class=&#34;link&#34; href=&#34;https://www.synology.cn/zh-cn/support/RAID_calculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.synology.cn/zh-cn/support/RAID_calculator&lt;/a&gt;
+（群晖科技）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows/Office 各版本镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://next.itellyou.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://next.itellyou.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://msdn.itellyou.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://msdn.itellyou.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;http://www.imsdn.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.imsdn.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://hellowindows.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hellowindows.cn/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://msdn.sjjzm.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://msdn.sjjzm.com/&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.xitongku.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.xitongku.com/&lt;/a&gt; (含office)&lt;br&gt;
+windows11官网iso镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download/windows11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.microsoft.com/zh-cn/software-download/windows11&lt;/a&gt;&lt;br&gt;
+windows10官网iso镜像下载&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download/windows10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.microsoft.com/zh-cn/software-download/windows10&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;微软Windows密钥管理服务 (KMS) 客户端激活和通用批量许可证密钥 (GVLK)，Windows全系列。安装产品密钥命令 &amp;quot; slmgr /ipk 密钥 &amp;ldquo;， 如 slmgr /ipk D2N9P-3P6X9-2R39C-7RTCD-MDVJX&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在线文件转换器Convertio。Convertio是一个在线文件格式转换工具网站，可以转换的类型有：文档、图像、音频、视频、电子书、字体等等。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://convertio.co/zh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://convertio.co/zh/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MuseTransfer是一款极简有趣的大文件传输工具，无需下载客户端，甚至无需注册，打开网页即可全速上传或下载超大文件。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://musetransfer.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://musetransfer.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Markdown 语法官方教程&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://markdown.com.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://markdown.com.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

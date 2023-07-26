@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Linux Centos7 firewall防火墙的基本操作'>
+<title>Linux Centos7 firewall防火墙的基本操作</title>
+
+<link rel='canonical' href='http://192.168.123.6:1313/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/'>
+
+<link rel="stylesheet" href="/scss/style.min.ff300df33b80e2ac49809c825614392ed1c7b27591d65d3c4043602cd162e25f.css"><meta property='og:title' content='Linux Centos7 firewall防火墙的基本操作'>
+<meta property='og:description' content='Linux Centos7 firewall防火墙的基本操作'>
+<meta property='og:url' content='http://192.168.123.6:1313/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/'>
+<meta property='og:site_name' content='L1nSn0w&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='防火墙' /><meta property='article:tag' content='centos' /><meta property='article:published_time' content='2022-09-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-09-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Linux Centos7 firewall防火墙的基本操作">
+<meta name="twitter:description" content="Linux Centos7 firewall防火墙的基本操作">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">L1nSn0w&#39;s Blog</a></h1>
+            <h2 class="site-description">无限进步.✍️</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://travellings.link/'
+                        
+                        title="aTravelling"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.foreverblog.cn/go.html'
+                        
+                        title="aWormhole"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="cRSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/lin-snow'
+                        target="_blank"
+                        title="dGitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E6%91%98%E5%BD%95/" >
+                技术摘录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/linux-centos7-firewall%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">Linux Centos7 firewall防火墙的基本操作</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Linux Centos7 firewall防火墙的基本操作
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Centos7中使用firewalld来作为防火墙，其底层调用的命令仍然是iptables等命令，但是在配置上发生了较大的变化。
+Centos7中有两个位置存放了firewall的配置文件，一个是/etc/firewalld，一个是/usr/lib/firewalld，前者是用户配置目录，后者是系统配置目录。/usr/lib/firewalld目录中存放的是firewalld提供的一些默认和备份的配置文件，一般不随意改变，/etc/firewalld目录下才是用户配置的真正生效的配置文件，只有在/etc/firewalld目录不存在或该目录下不存在配置文件的情况下/usr/lib/firewalld目录下的配置文件才会生效。</p>
+<p><strong>zone的概念</strong><br>
+zone定义了防火墙对某个连接、网口（interface）或源地址的信任等级，我们可以把他理解为防火墙对不同的连接（connection）、网口（interface）或源地址（source address）划分到不同的zone当中，而不同的zone定义了不同的规则，因此防火墙可以针对不同的连接、网口（interface）或源地址做出不同的行为。例如，我们将10.12.18.201这个地址划分到zone1中，将10.12.18.202这个地址划分到zone2中，然后zone1中定义的规则为：允许访问3306端口，其余的端口都拒绝访问；zone2中定义的规则为：拒绝访问3306端口，其余的端口都允许访问。那么10.12.18.201就仅能访问本机的3306端口，10.12.18.202就仅不能访问本机的3306端口。每个zone的防火墙规则是通过/etc/firewalld/zones目录下的xml配置文件来配置的。
+zone和connection、interface、source address之间是一对多的关系，即一个connection、interface或source address仅能划分到一个zone中，而一个zone中可以包含多个connection、interface或source address。</p>
+<p>对于一个接受到的请求具体使用哪个zone，firewalld是通过三种方法来判断的：<br>
+1、source，也就是源地址<br>
+2、interface，接收请求的网卡<br>
+3、firewalld.conf中配置的默认zone<br>
+这三个的优先级按顺序依次降低，也就是说如果按照source可以找到就不会再按interface去查找，如果前两个都找不到才会使用第三个，也就是学生在前面给大家讲过的在firewalld.conf中配置的默认zone。</p>
+<p><strong>预定义的zone</strong><br>
+Centos7中firewalld为用户预定义了9个zone，分别为drop，block，public，external，dmz，work，home，internal，trusted。这9个zone的配置文件在/usr/lib/firewalld/zones目录下，通过查看他们的配置文件可以得知这9个zone的规则是怎么样的。<br>
+drop：任何传入本机的网络数据包都会被丢弃，并且不会回复，只允许本机对外访问其他服务器。<br>
+block：任何传入本机的网络连接请求都会被拒绝，并且会回复一条拒绝访问的消息。<br>
+public：用于本机处于公共网络环境的场景下，仅接受特定的连接请求，如仅接受某些特定的IP的连接请求，或仅对外部开放特定的某些端口。Centos 7 默认的public.xml文件中仅开放用于ssh连接请求的22端口和dhcpv6-client服务的546端口。<br>
+external：与public类似，Centos 7 默认仅开放用于ssh连接请求的22端口。<br>
+dmz：与external一样，Centos 7 默认也是仅开放用于ssh连接请求的22端口。<br>
+work：用于工作网络环境场景下，信任大部分的其他的计算机不会对本机进行攻击。Centos 7 默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，以及IPP协议的631端口。<br>
+home：用于家庭网络环境，信任网络上的其他计算机不会攻击本机。Centos 7默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，IPP协议的631端口，samba服务的137、138端口，mDNS服务的5353端口。<br>
+internal：与home一样，Centos 7默认开放用于ssh连接请求的22端口，dhcpv6-client服务的546端口，IPP协议的631端口，samba服务的137、138端口，mDNS服务的5353端口。
+trusted：所有对本机的网络连接请求都会被接受。</p>
+<p><strong>（注：如果更改的防火墙配置，记得要执行 firewall-cmd &ndash;reload 重新加载一次才会生效。）</strong></p>
+<p><strong>操作firewall防火墙的常用命令</strong></p>
+<ul>
+<li>
+<p>查看防火墙状态<br>
+systemctl status firewalld</p>
+</li>
+<li>
+<p>关闭防火墙<br>
+systemctl stop firewalld</p>
+</li>
+<li>
+<p>打开防火墙<br>
+systemctl start firewalld</p>
+</li>
+<li>
+<p>重启防火墙<br>
+systemctl restart firewalld.service</p>
+</li>
+<li>
+<p>开放端口<br>
+<code>firewall-cmd --zone=public --add-port=80/tcp --permanent</code> //在public作用域中开放80端口。<br>
+返回success为成功。</p>
+</li>
+<li>
+<p>关闭端口<br>
+<code>firewall-cmd --zone=public --remove-port=80/tcp --permanent</code> //在public作用域中关闭80端口。<br>
+其中 <code>--zone</code>是作用域，<code>--add-port=80/tcp</code> 添加80端口，通讯协议为TCP，<code>--permanent</code> 设置为永久生效。</p>
+</li>
+<li>
+<p>开放一段端口<br>
+<code>firewall-cmd --zone=public --add-port=40000-45000/tcp --permanent</code><br>
+重新加载Firewalld守护程序以使更改生效：<br>
+<code>firewall-cmd --reload</code></p>
+</li>
+<li>
+<p>查看开放的端口列表<br>
+<code>firewall-cmd --zone=public --list-ports</code> //列出public作用域开放的端口<br>
+<code>firewall-cmd --list-all</code> //列出全部开放的端口（并能查看到当前活动的作用域）</p>
+</li>
+<li>
+<p>查看与公共区域关联的防火墙规则或服务<br>
+<code>firewall-cmd --list-all</code></p>
+</li>
+<li>
+<p>查看与某个区域关联的防火墙规则或服务，例如查看block这个区域<br>
+<code>firewall-cmd --zone=block --list-all</code></p>
+</li>
+<li>
+<p>将某个source(IP地址)划分到某个zone的命令如下：<br>
+<code>firewall-cmd [--permanent] [--zone=zone] --add-source=source</code> <br>
+例如：<br>
+<code>firewall-cmd --permanent --zone=trusted --add-source=192.168.5.112</code><br>
+这条命令会将192.168.5.112这个ip划分到trusted这个zone，<code>-–permanent</code>参数会将该配置写入trusted这个zone的配置文件trusted.xml中，使其永久生效。如果不加–permanent，则只会临时生效，重启防火墙或者调用<code>firewall-cmd --reload</code>重新加载配置文件会使得该项配置失效。</p>
+</li>
+<li>
+<p>将某个网口（interface）划分到某个zone的命令如下：<br>
+<code>firewall-cmd [--permanent] [--zone=zone] --add-interface=interface</code><br>
+例如：<br>
+<code>firewall-cmd --permanent --zone=block --add-interface=ens33</code><br>
+这条命令会将ens33这个网口划分到block这个zone，这样其他机器访问本机的ens33网口时就会默认走这个zone。<br>
+如果某个连接请求没有划分到任何一个zone，那么就会走默认的zone，Centos7 默认情况下，默认zone为public。可以通过以下命令查看或者修改默认zone。</p>
+</li>
+<li>
+<p>获取默认的zone：<br>
+<code>firewall-cmd --get-default-zone</code></p>
+</li>
+<li>
+<p>修改默认的zone：<br>
+<code>firewall-cmd --permanent --set-default-zone=[zone]</code></p>
+</li>
+</ul>
+<p><strong>创建新的区域</strong><br>
+firewalld还允许您创建自己的区域。当您想要创建每个应用程序的规则时，这很方便。在以下示例中，我们将创建一个名为memcached的新分区，打开端口11211，并仅允许从IP地址192.168.100.30进行访问：<br>
+<code>firewall-cmd --new-zone=visitors --permanent</code><br>
+开放端口添加端口<br>
+<code>firewall-cmd --zone=visitors --add-port=80/tcp --permanent</code><br>
+<code>firewall-cmd --zone=visitors --add-port=53/tcp --permanent</code><br>
+<code>firewall-cmd --zone=visitors --add-source=10.10.2.0/24 --permanent</code><br>
+重新加载Firewalld守护程序以激活更改：<br>
+<code>firewall-cmd --reload</code><br>
+&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;<br>
+<strong>其他的一些相关的命令：</strong><br>
+列出该zone下绑定了哪些interface：
+<code>firewall-cmd [--zone=zone] --list-interfaces</code></p>
+<p>将该interface绑定到另一个zone上：<br>
+<code>firewall-cmd [--permanent] [--zone=zone] --change-interface=interface</code></p>
+<p>如果该interface之前绑定到了某个zone，可以取消绑定，取消绑定后，会走默认的zone：<br>
+<code>firewall-cmd [--permanent] --remove-interface=interface</code></p>
+<p><strong>与source相关的：</strong><br>
+把某个ip绑定到source中<br>
+<code>firewall-cmd [--permanent] [--zone=zone] --add-source=source</code><br>
+例如：<br>
+<code>firewall-cmd --permanent --zone=public --add-source=192.168.1.111</code><br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/d4ff13f3223bcbbd278b0fbc507ea060.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>从某个source中把某个ip取消绑定(删除绑定)<br>
+<code>firewall-cmd [--permanent] --remove-source=source</code><br>
+例如：<br>
+<code>firewall-cmd --permanent --zone=public --remove-source=192.168.1.111</code><br>
+<img src="https://cdn.staticaly.com/gh/freefish100/pics@main/img/06cf54296689c81eba8b7c4d98053648.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>查看source中的绑定<br>
+<code>firewall-cmd [--permanent] [--zone=zone] --list-sources</code></p>
+<p>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</p>
+<p><strong>向firewalld中添加规则：</strong><br>
+将服务添加到特定的区域<br>
+指定特定的zone区域名称，并且使用&ndash;add-service添加服务名称<br>
+<code>firewall-cmd --zone=public --add-service=dns --permanent</code></p>
+<p>从区域中删除(删除)服务<br>
+<code>firewall-cmd --zone=public --remove-service=dns --permanent</code></p>
+<p>如何允许/打开TCP/UDP端口/协议<br>
+<code>firewall-cmd --zone=public --add-port=8080/tcp --permanent</code>
+验证结构，可以使用以下命令验证<br>
+<code>firewall-cmd --list-ports</code></p>
+<p>拒绝/阻止TCP/UDP端口/协议<br>
+<code>firewall-cmd --zone=public --remove-port=23/tcp --permanent</code></p>
+<p>打开端口和源IP<br>
+Firewalld还允许您快速启用来自可信IP地址或特定端口的所有流量，而无需创建服务定义<br>
+开放源IP：<br>
+要允许来自特定IP地址(或范围)的所有传入流量，请使用&ndash;zone选项指定区域，并使用&ndash;add-source选项指定源IP。例如，要允许公共区域中来自192.168.172.32的所有传入流量，请运行：
+<code>firewall-cmd --zone=public --add-source=192.168.172.32</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/">防火墙</a>
+        
+            <a href="/tags/centos/">centos</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">windows远程桌面连接linux ubuntu centos</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linuxcentos-top%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux(Centos) top命令的使用详解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/linux-centos-%E9%98%B2%E7%81%AB%E5%A2%99firewall%E9%85%8D%E7%BD%AE%E5%8F%AA%E5%85%81%E8%AE%B8%E7%89%B9%E5%AE%9Aip%E8%AE%BF%E9%97%AE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux Centos 防火墙firewall配置只允许特定ip访问</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/dell%E6%88%B4%E5%B0%942012%E5%B9%B4%E8%87%B32022%E5%B9%B4%E7%94%9F%E4%BA%A7%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9E%8B%E5%8F%B7%E5%88%97%E8%A1%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DELL戴尔2012年至2022年生产的服务器型号列表</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/vmware-esxi-vcenter-%E5%A4%87%E5%BF%98%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">VMware ESXI vCenter 备忘笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/"],"locale":{"admin":"👻屑博主","placeholder":"🎉留下你的脚印."},"pageview":true,"requiredMeta":["name","email"],"serverURL":"xxx"});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 L1nSn0w&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

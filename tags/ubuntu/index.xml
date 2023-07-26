@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ubuntu on L1nSn0w&#39;s Blog</title>
+        <link>http://192.168.123.6:1313/tags/ubuntu/</link>
+        <description>Recent content in ubuntu on L1nSn0w&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://192.168.123.6:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>windows远程桌面连接linux ubuntu centos</title>
+        <link>http://192.168.123.6:1313/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/</link>
+        <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://192.168.123.6:1313/p/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5linux-ubuntu-centos/</guid>
+        <description>&lt;p&gt;&lt;strong&gt;windows远程桌面连接ubuntu（ubuntu20.04下测试通过）&lt;/strong&gt;&lt;br&gt;
+在Ubuntu上安装Xfce桌面环境。您可以使用以下命令安装Xfce桌面环境&lt;br&gt;
+&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安装xrdp&lt;br&gt;
+&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get install xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;启动xrdp服务&lt;br&gt;
+&lt;code&gt;sudo systemctl enable xrdp&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo systemctl enable --now xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置Ubuntu防火墙以允许RDP连接&lt;br&gt;
+&lt;code&gt;sudo ufw allow 3389/tcp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果连接不上，提示类似如下的错误，要检查用户名密码是否正确，否则重启一次unbuntu电脑.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;connection to sesman ip 127.0.0.1 port 3350
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sesman connect ok
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sending login info to session manager,please wait...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;login failed for display 0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在Windows上打开远程桌面连接(或者运行“mstsc”)，输入Ubuntu主机的IP地址并点击“连接”。
+在“登录到Windows”窗口中，选择“使用其他帐户”选项，并输入Ubuntu的用户名和密码。
+单击“连接”按钮，等待几秒钟，即可连接到Ubuntu桌面。&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;windows远程桌面连接Centos（Centos7.9下测试通过）&lt;/strong&gt;&lt;br&gt;
+在CentOS 7.9上安装GNOME桌面环境&lt;br&gt;
+&lt;code&gt;sudo yum groupinstall &amp;quot;GNOME Desktop&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;安装xrdp服务器&lt;br&gt;
+&lt;code&gt;sudo yum update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo yum install xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;启动xrdp服务&lt;br&gt;
+&lt;code&gt;sudo systemctl start xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置xrdp服务器使其在系统启动时自动启动&lt;br&gt;
+&lt;code&gt;sudo systemctl enable xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置防火墙以允许RDP连接：&lt;br&gt;
+&lt;code&gt;sudo firewall-cmd --add-port=3389/tcp --permanent&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo firewall-cmd --reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在Windows上打开远程桌面连接(或者运行“mstsc”)，输入Ubuntu主机的IP地址并点击“连接”。
+在“登录到Windows”窗口中，选择“使用其他帐户”选项，并输入Ubuntu的用户名和密码。
+单击“连接”按钮，等待几秒钟，即可连接到Centos桌面。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
